@@ -1,0 +1,41 @@
+# TLE '16 Contest 6 (Mock CCC) S1 - Writing the CCC
+# Chemistry : types of problems vs actual problems
+
+import collections
+
+types = {}
+
+# problems = []
+problems_index = {}
+
+t = int(input())
+i = 0
+while i < t:
+    typ = str(input())
+    types[typ] = i
+
+    i = i + 1
+
+#print("After questions types inputs: types=", types)
+
+n = int(input())
+j = 0
+while j < n:
+    problem = str(input())
+    # num = my_func(types, problem)
+    num = types.get(problem)
+    problems_index[j] = num
+    j = j + 1
+
+#print("After 2nd input: questions = ", problems_index)
+
+# sorted_problems = collections.OrderedDict(sorted(problems_index.items()))
+
+sorted_problems = dict(sorted(problems_index.items(), key=lambda item: item[1]))
+
+for k, v in sorted_problems.items():
+    print(k + 1)
+
+# final_list = my_func_l(problems)
+# for ans in final_list:
+#     print(ans)
